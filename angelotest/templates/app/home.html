@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<style>
+#booking {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#booking td, #booking th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#booking tr:nth-child(even){background-color: #f2f2f2;}
+
+#booking tr:hover {background-color: #ddd;}
+
+#booking th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+<body>
+<h1>HOME</h1>
+{% csrf_token %}
+<p>email:   {{email}}</p>
+{{username}}        {{msg}}
+</body>
+</html>
