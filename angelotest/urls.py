@@ -22,8 +22,11 @@ from django.conf.urls import url, include
 
 
 urlpatterns = [
+    url(r'^home/vehicle=(\d+)&userid=(\d+)$', views.vehiclesView, name='view'),
+    url(r'^home/bookvehicle=(\d+)&userid=(\d+)$', views.vehiclesView, name='view'),
     path('admin/', admin.site.urls),
     url(r'^$', views.login,  name='login'),
-    url(r'^login/$', views.login, name='login'),
-    url(r'^login$', views.login, name='login'),
+    url(r'^home/$', views.login, name='login'),
+    url(r'^home$', views.login, name='login'),
+    url(r'^home/userid=(\d+)$', views.backToHome, name='login'),
 ]

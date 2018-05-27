@@ -4,14 +4,17 @@
   <title></title>
 </head>
 <body>
-<h1>Simple Web App</h1>
-<form action="/" method="post">
+<h1  style="text-align: center;">Simple Web App</h1>
+<form action="home/" method="post" style="text-align: center;">
 {% csrf_token %}
   	<div>Insert your email:<input name="email" id="email" type="email" required></div>      
   	<div>Insert your name:<input name="name" id="name" type="text" required></div>      
   	<div>Insert your password:<input name="password" id="password" type="password" required></div>      
 	<input type="submit" name="Login" value="Login">
-	{{msg}}
+	<br>
+	<br>
+	<br>
+	<div style="color:red;">{{msg}}</div>
 </form>
 </body>
 </html>

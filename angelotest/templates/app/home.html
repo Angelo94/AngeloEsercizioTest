@@ -4,22 +4,22 @@
   <title></title>
 </head>
 <style>
-#booking {
+#table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-#booking td, #booking th {
+#table td, #table th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-#booking tr:nth-child(even){background-color: #f2f2f2;}
+#table tr:nth-child(even){background-color: #f2f2f2;}
 
-#booking tr:hover {background-color: #ddd;}
+#table tr:hover {background-color: #ddd;}
 
-#booking th {
+#table th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
@@ -27,10 +27,67 @@
     color: white;
 }
 </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script type="text/javascript">
+
+	
+
+</script>
+
 <body>
+<div><a href="/">Back to login</a></div>
+<div style="text-align:center;">
 <h1>HOME</h1>
 {% csrf_token %}
 <p>email:   {{email}}</p>
 {{username}}        {{msg}}
+</div>
+
+<br>
+<br>
+<br>
+
+<table id="table">
+<tr>
+	<th>UserID</th>
+	<th>Model</th>
+	<th>StartDate</th>
+	<th>EndDate</th>
+	<th>Place</th>
+</tr>
+{% for booking in BookingList %}
+<tr>
+<td>{{booking.UserID}}</td>                     
+<td>{{booking.Model}}</td> 
+<td>{{booking.StartDate}}</td> 
+<td>{{booking.EndDate}}</td> 
+<td>{{booking.Place}}</td> 
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+<br>
+
+
+<p>CLICK ON THE ID TO SEE DETAILS</p>
+<table id="table">
+<tr>
+	<th>VehicleID</th>
+	<th>Code</th>
+	<th>Model</th>
+</tr>
+{% for vehicle in vehiclesList %}
+<tr>
+<td><a href="vehicle={{vehicle.VehicleID}}&userid={{userID}}">{{vehicle.VehicleID}}</a></td>                     
+<td>{{vehicle.Code}}</td> 
+<td>{{vehicle.Model}}</td> 
+</tr>
+{% endfor %}
+</table>
+
+
 </body>
 </html>
